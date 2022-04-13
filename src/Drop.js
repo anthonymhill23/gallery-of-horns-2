@@ -11,7 +11,7 @@ export default class Drop extends Component {
                     <option value='1'>1 Horn</option>
                     <option value='2'>2 Horn</option>
                     <option value='3'>3 Horn</option>
-                    <option value='100'>MAX HORNS (100!!!)</option>
+                    <option value='100'>ULTIMATE HORNS!!!!! (100!!!)</option>
                 </Form.Select>
             </Form>
         )
