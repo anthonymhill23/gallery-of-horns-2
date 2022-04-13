@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img {
+  height: 17rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+button {
+  background-color: gold;
+}
+
+.search-field {
+  width: 30rem;
+  margin: 0 auto;
+  /* padding-top: 2.5rem; */
+  padding-bottom: 1.5rem;
+  background-color: #70587c;
+}
