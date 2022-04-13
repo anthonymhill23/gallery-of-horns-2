@@ -1,52 +1,33 @@
 import React, { Component } from "react";
-import Beast from "./Beast";
+import HornedBeast from "./Beast";
+import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
+export default class Main extends Component {
 
-
-import data from "./provided.json"
-import "./App.css"
-import "./style.css"
-
-
-class Main extends Component {
-    // console.log(data)
-    // let beast = []
-    // data.forEach((hornedBeast, index) => {
-    //     beast.push(
-    //         <Beast
-    //             imgURL={hornedBeast.image_url}
-    //             title={hornedBeast.title}
-    //             description={hornedBeast.description}
-    //             keyword={hornedBeast.keyword}
-    //             key={index}
-
-    //         />
-
-    //     ))
-    // }
     render() {
+        const renderArray = this.props.data.map((object) => {
 
+            const searching = object.title.toLowerCase();
+            if (this.props.searchData !== "" && !searching.includes(this.props.searchData)) {
+                return null
+            }
 
-            return (
-            <div className="main">
-                
-                        {data.map((hornedBeast, index) =>(
-         
-             <Beast
-                 imgURL={hornedBeast.image_url}
-                 title={hornedBeast.title}
-                 description={hornedBeast.description}
-                 keyword={hornedBeast.keyword}
-                 key={index}
+            if (this.props.hornSelected !== "" && !(parseInt(this.props.hornSelected) === object.horns)) {
+                return null
+            }
 
-            />))}
-                        
+            return (<HornedBeast key={object.title} searchData={this.props.searchData} hornSelected={this.props.hornSelected} animal={object} openModal={this.props.modalTrue} />)
+        })
+
+        return (
+            <div className='main'>
+                <Container>
+                    <Row sm={1} md={2} lg={3} xl={4}>
+                        {renderArray}
+                    </Row>
+                </Container>
             </div>
         )
-
-
     }
-
 }
-
-export default Main
