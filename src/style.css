@@ -1,0 +1,18 @@
+body {
+  background-color: purple;
+}
+.heading {
+  background-color: red;
+  
+}
+.main {
+  margin: .3rem;
+  background-color:purple ;
+}
+.row {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+.card {
+  background-color:white ;
+}
