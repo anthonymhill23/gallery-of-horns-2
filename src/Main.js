@@ -3,35 +3,50 @@ import Beast from "./Beast";
 import hornedarray from "./provided.json"
 import { Container } from "react-bootstrap";
 import { Row } from "react-bootstrap";
-import data from   "./provided.json"
+import data from "./provided.json"
 import "./App.css"
+import "./style.css"
 
 
 class Main extends Component {
+    // console.log(data)
+    // let beast = []
+    // data.forEach((hornedBeast, index) => {
+    //     beast.push(
+    //         <Beast
+    //             imgURL={hornedBeast.image_url}
+    //             title={hornedBeast.title}
+    //             description={hornedBeast.description}
+    //             keyword={hornedBeast.keyword}
+    //             key={index}
+
+    //         />
+
+    //     ))
+    // }
     render() {
-        let beast = []
-        this.props.data.forEach((hornedBeast, index) =>{
-            beast.push(
-                <Beast
-                    imgURL={hornedBeast.image_url}
-                    title={hornedBeast.title}
-                    description={hornedBeast.description}
-                    keyword={hornedBeast.keyword}
-                    key={index}
-
-                />
-
-            )
 
 
-        } );
-        return (
-            <main>
-                {beast}
-            </main>
+            return (
+            <div className="main">
+                
+                        {data.map((hornedBeast, index) =>(
+         
+             <Beast
+                 imgURL={hornedBeast.image_url}
+                 title={hornedBeast.title}
+                 description={hornedBeast.description}
+                 keyword={hornedBeast.keyword}
+                 key={index}
+
+            />))}
+                        
+            </div>
         )
+
+
     }
-    
 
 }
+
 export default Main
