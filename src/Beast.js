@@ -1,42 +1,34 @@
 import React, { Component } from "react";
-import Emoji from "./emoji"
-import { Card, Row } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import {Container} from 'react-bootstrap/'
+import Emoji from "./emoji";
+import Button from 'react-bootstrap/Button'
+import { Card } from "react-bootstrap";
 
+export default class HornedBeast extends Component {
 
-
-
-class Beast extends React.Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      favorite: 0
+    constructor(props) {
+        super(props);
+        this.state = {
+            favorite: 0,
+        }
     }
-  }
 
-  handleClick = () => {
-    this.setState({ favorite: this.state.favorite + 1 });
-  };
+    handleClick = _ => {
+        this.setState({ favorite: this.state.favorite + 1 })
+    }
 
-  render() {
-    console.log(this.state)
-    return (
-      <Container >
-        <Row>
-   <Card style={{ width: '100px' }}>
-    <Card.Img variant="top" src= {this.props.imgURL} />
-    <Card.Body>
-    <Card.Title>{this.props.title}</Card.Title>
-    <Card.Text>
-    {this.props.description}
-    </Card.Text>
-    <Button variant="primary" onClick={ this.handleClick}>❤️Favorites:{this.state.favorite}</Button>
-    </Card.Body>
-    </Card> 
-    </Row>
-</Container>
-    )
-  }
+    handleImgClick = _ => {
+        this.props.openModal(this.props.animal, this.state.favorite);
+    }
+
+    render() {
+        return (
+            <Card style={{ height: '30rem' }}>
+                <Card.Title>{this.props.title}</Card.Title>
+                <Card.Img src={this.props.imgURL} title={this.props.title} onClick={this.handleImgClick} />
+                <Card.Text style={{ height: '4rem' }}>{this.props.description}</Card.Text>
+                <Button style={{ height: '3rem', width: '3rem', margin: 'auto' }} onClick={this.handleClick}><Emoji symbol='💘' /></Button>
+                <Card.Text>Favorites:{this.state.favorite}</Card.Text>
+            </Card>
+        )
+    }
 }
-export default Beast;
