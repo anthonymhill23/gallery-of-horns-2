@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Beast from "./Beast";
-import hornedarray from "./provided.json"
-import { Container } from "react-bootstrap";
-import { Row } from "react-bootstrap";
+
+
+
 import data from "./provided.json"
 import "./App.css"
 import "./style.css"
